@@ -3,8 +3,8 @@
 import { useSearchParams } from "next/navigation";
 import VehicleCard from "@/components/cards/VehicleCard";
 import Spinner from "@/components/Spinner";
+import { getVehicle } from "@/services/vehicle";
 import { useQuery } from "@tanstack/react-query";
-import { getVehicle } from "../services/vehicle";
 
 function VehicleList() {
   const searchParams = useSearchParams();

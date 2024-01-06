@@ -6,3 +6,9 @@ export async function getVehicle() {
   if (res.data === undefined) return;
   return res.data.type;
 }
+
+export async function getVehicleBySlug(slug: string) {
+  const res = await httpClient.get<BaseResponse>(`/vehicles`);
+  if (res.data === undefined) return;
+  return res.data.type.flatMap(type => type.car_type).find(car => car.vehicle === slug);
+}

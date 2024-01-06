@@ -1,8 +1,8 @@
+import { getCategory } from "@/services/category";
+import { getVehicle } from "@/services/vehicle";
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
 import Category from "./components/Category";
 import VehicleList from "./components/VehicleList";
-import { getCategory } from "./services/category";
-import { getVehicle } from "./services/vehicle";
 
 export default function Home() {
   return (

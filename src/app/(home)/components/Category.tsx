@@ -3,8 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { getCategory } from "@/services/category";
 import { useQuery } from "@tanstack/react-query";
-import { getCategory } from "../services/category";
 
 function Category() {
   const { data } = useQuery({
