@@ -6,14 +6,14 @@ import VehicleList from "./components/VehicleList";
 
 export default function Home() {
   return (
-    <main className="container flex flex-col gap-6 py-5">
+    <>
       <section className="container rounded-xl border bg-gray-50 px-14 py-5 shadow-lg">
         <CategorySSR />
       </section>
       <section className="flex flex-col gap-5">
         <VehicleListSSR />
       </section>
-    </main>
+    </>
   );
 }
 

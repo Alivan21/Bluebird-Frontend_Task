@@ -20,10 +20,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("min-h-screen scroll-smooth bg-background font-sans antialiased", fontSans.variable)}>
+      <body className={cn("scroll-smooth bg-background font-sans antialiased", fontSans.variable)}>
         <TanstackProvider>
           <Navbar />
-          <div className="py-5 text-gray-900">{children}</div>
+          <main className="container flex min-h-screen flex-col gap-6 py-5 text-gray-900">{children}</main>
           <Footer />
           <Toaster />
         </TanstackProvider>
