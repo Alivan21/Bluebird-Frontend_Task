@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,21 @@ import { useBookStore } from "@/store/book";
 
 function MyBook() {
   const { book, remove, clear: handleClearBook } = useBookStore();
+
+  const totalPrice = useMemo(() => {
+    return book.reduce((total, item) => {
+      const numberString = item.price?.match(/\d+/g)?.join("") ?? "";
+      const price = parseFloat(numberString);
+      const quantity = item.count ?? 0;
+      const totalPrice = total + price * quantity;
+      return totalPrice;
+    }, 0);
+  }, [book]);
+
+  const formattedTotalPrice = totalPrice.toLocaleString("id-ID", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
 
   return (
     <section className="container rounded-lg p-6 shadow-lg">
@@ -45,7 +61,7 @@ function MyBook() {
         )}
         <div className="mt-6 flex items-center justify-between border-t-2 border-blue-300 pt-3">
           <div className="text-lg font-semibold text-blue-900">Total Price</div>
-          <div className="text-lg text-blue-900">$83,000</div>
+          <div className="text-lg text-blue-900">IDR {formattedTotalPrice}</div>
         </div>
         <div className="flex gap-3">
           <Button
