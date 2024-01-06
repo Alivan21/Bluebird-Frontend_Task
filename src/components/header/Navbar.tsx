@@ -14,7 +14,7 @@ function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 bg-[#1e40af]">
+    <header className="sticky top-0 z-10 bg-[#1e40af] shadow-lg">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">

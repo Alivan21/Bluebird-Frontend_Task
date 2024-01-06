@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, NextConfig } from "next";
 import { Inter as FontSans } from "next/font/google";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/header/Navbar";
 import { cn } from "@/lib/utils";
 import TanstackProvider from "@/providers/TanstackProvider";
@@ -18,10 +19,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("scroll-smooth font-sans antialiased", fontSans.variable)}>
+      <body className={cn("min-h-screen scroll-smooth bg-background font-sans antialiased", fontSans.variable)}>
         <TanstackProvider>
           <Navbar />
-          <div className="min-h-screen bg-gray-50 text-gray-900">{children}</div>
+          <div className="py-5 text-gray-900">{children}</div>
+          <Footer />
         </TanstackProvider>
       </body>
     </html>
