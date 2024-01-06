@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Spinner from "@/components/Spinner";
 import { Button } from "@/components/ui/button";
@@ -13,14 +14,22 @@ import { Heart, Share } from "lucide-react";
 
 function Vehicle({ params }: { params: { slug: string } }) {
   const slug = fromKebabCase(params.slug);
+  const [isWishlisted, setIsWishlisted] = useState(false);
   const { toast } = useToast();
   const { add: handleAddtoBook } = useBookStore();
-  const { add: handleAddtoWishlist } = useWishlistStore();
+  const { wishlist, add: handleAddtoWishlist } = useWishlistStore();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["vehicle", slug],
     queryFn: () => getVehicleBySlug(slug),
   });
+
+  useEffect(() => {
+    const checkWishlist = () => {
+      setIsWishlisted(wishlist.some(item => item.vehicle === data?.vehicle));
+    };
+    checkWishlist();
+  }, [data, wishlist]);
 
   async function copyToClipboard() {
     try {
@@ -107,7 +116,12 @@ function Vehicle({ params }: { params: { slug: string } }) {
           <Button className="w-1/2 bg-blue-500 text-white hover:bg-blue-700" onClick={copyToClipboard} type="button">
             <Share size={20} strokeWidth={2.5} />
           </Button>
-          <Button className="w-1/2 bg-red-500 text-white hover:bg-red-700" onClick={AddtoWishlist} type="button">
+          <Button
+            className="w-1/2 bg-red-500 text-white hover:bg-red-700"
+            disabled={isWishlisted}
+            onClick={AddtoWishlist}
+            type="button"
+          >
             <Heart size={20} strokeWidth={2.5} />
           </Button>
         </div>
