@@ -6,12 +6,14 @@ import Spinner from "@/components/Spinner";
 import { useToast } from "@/components/ui/use-toast";
 import { getVehicle } from "@/services/vehicle";
 import { useBookStore } from "@/store/book";
+import { useWishlistStore } from "@/store/wishlist";
 import { useQuery } from "@tanstack/react-query";
 
 function VehicleList() {
   const searchParams = useSearchParams();
   let category = searchParams.get("category");
   const { add: handleAddtoBook } = useBookStore();
+  const { add: handleAddtoWishlist } = useWishlistStore();
   const { toast } = useToast();
 
   const { data } = useQuery({
@@ -43,6 +45,15 @@ function VehicleList() {
               toast({
                 title: "Vehicle added to book",
                 className: "bg-blue-500 border-blue-500 text-white",
+                duration: 2000,
+              });
+            }}
+            addToWishlist={() => {
+              handleAddtoWishlist(vehicle);
+              toast({
+                title: "Vehicle added to wishlist",
+                className: "bg-red-500 border-red-500 text-white",
+                duration: 2000,
               });
             }}
             imageURL={vehicle.imageURL}

@@ -4,21 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { convertToKebabCase } from "@/lib/toKebabCase";
-import { useBookStore } from "@/store/book";
+import { useWishlistStore } from "@/store/wishlist";
 
-function MyBook() {
-  const { book, remove, clear: handleClearBook } = useBookStore();
+function WishList() {
+  const { wishlist, remove, clear: handleClearBook } = useWishlistStore();
 
   return (
     <section className="container rounded-lg p-6 shadow-lg">
       <div className="flex flex-col gap-3">
-        <h1 className="text-2xl font-bold text-blue-600">My Book</h1>
-        {book?.length === 0 ? (
+        <h1 className="text-2xl font-bold text-blue-600">Wishlist</h1>
+        {wishlist?.length === 0 ? (
           <div className="flex h-48 items-center justify-center">
-            <h1 className="text-xl font-semibold text-blue-600">No Book</h1>
+            <h1 className="text-xl font-semibold text-blue-600">No Wishlist</h1>
           </div>
         ) : (
-          book?.map((item, index) => (
+          wishlist?.map((item, index) => (
             <div className="mb-3 flex flex-wrap items-center justify-end space-x-4" key={index}>
               <Link href={`/vehicle/${convertToKebabCase(item.vehicle)}`}>
                 <Image
@@ -35,7 +35,6 @@ function MyBook() {
               <div className="flex-1">
                 <div className="mb-1 text-lg font-semibold text-blue-900">{item.vehicle}</div>
                 <div className="text-sm text-blue-700">{item.price}</div>
-                <div className="text-sm text-blue-700">{item.count}x</div>
               </div>
               <Button className="rounded bg-red-500 text-white hover:bg-red-700" onClick={() => remove(item.vehicle)}>
                 Delete
@@ -43,24 +42,17 @@ function MyBook() {
             </div>
           ))
         )}
-        <div className="mt-6 flex items-center justify-between border-t-2 border-blue-300 pt-3">
-          <div className="text-lg font-semibold text-blue-900">Total Price</div>
-          <div className="text-lg text-blue-900">$83,000</div>
-        </div>
-        <div className="flex gap-3">
+        <div className="flex items-end justify-end gap-3">
           <Button
-            className="w-full rounded bg-red-500 px-4 py-2 text-white hover:bg-red-700"
-            disabled={book.length === 0}
+            className="w-1/4 rounded bg-red-500 px-4 py-2 text-white hover:bg-red-700"
+            disabled={wishlist.length === 0}
             onClick={handleClearBook}
           >
             Delete All
-          </Button>
-          <Button className="w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-700" disabled>
-            Checkout
           </Button>
         </div>
       </div>
     </section>
   );
 }
-export default MyBook;
+export default WishList;

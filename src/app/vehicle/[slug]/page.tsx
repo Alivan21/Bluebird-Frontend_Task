@@ -7,6 +7,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { fromKebabCase } from "@/lib/fromKebabcase";
 import { getVehicleBySlug } from "@/services/vehicle";
 import { useBookStore } from "@/store/book";
+import { useWishlistStore } from "@/store/wishlist";
 import { useQuery } from "@tanstack/react-query";
 import { Heart, Share } from "lucide-react";
 
@@ -14,6 +15,7 @@ function Vehicle({ params }: { params: { slug: string } }) {
   const slug = fromKebabCase(params.slug);
   const { toast } = useToast();
   const { add: handleAddtoBook } = useBookStore();
+  const { add: handleAddtoWishlist } = useWishlistStore();
 
   const { data, isLoading } = useQuery({
     queryKey: ["vehicle", slug],
@@ -26,6 +28,7 @@ function Vehicle({ params }: { params: { slug: string } }) {
       toast({
         title: "Link copied to clipboard",
         className: "bg-green-500 border-green-500 text-white",
+        duration: 2000,
       });
     } catch (error) {
       // nopp
@@ -38,6 +41,18 @@ function Vehicle({ params }: { params: { slug: string } }) {
       toast({
         title: "Vehicle added to book",
         className: "bg-blue-500 border-blue-500 text-white",
+        duration: 2000,
+      });
+    }
+  }
+
+  function AddtoWishlist() {
+    if (data) {
+      handleAddtoWishlist(data);
+      toast({
+        title: "Vehicle added to wishlist",
+        className: "bg-red-500 border-red-500 text-white",
+        duration: 2000,
       });
     }
   }
@@ -85,7 +100,7 @@ function Vehicle({ params }: { params: { slug: string } }) {
           <Button className="w-1/2 bg-blue-500 text-white hover:bg-blue-700" onClick={copyToClipboard} type="button">
             <Share size={20} strokeWidth={2.5} />
           </Button>
-          <Button className="w-1/2 bg-red-500 text-white hover:bg-red-700">
+          <Button className="w-1/2 bg-red-500 text-white hover:bg-red-700" onClick={AddtoWishlist} type="button">
             <Heart size={20} strokeWidth={2.5} />
           </Button>
         </div>

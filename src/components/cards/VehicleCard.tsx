@@ -9,9 +9,10 @@ type VehicleCardProps = {
   imageURL: string;
   item: CarType;
   addToBook: (item: CarType) => void;
+  addToWishlist: (item: CarType) => void;
 };
 
-function VehicleCard({ vehicle, imageURL, addToBook, item }: VehicleCardProps) {
+function VehicleCard({ vehicle, imageURL, addToBook, item, addToWishlist }: VehicleCardProps) {
   return (
     <div className="group relative m-auto h-48 w-full rounded-sm border">
       <Link href={`/vehicle/${convertToKebabCase(vehicle)}`}>
@@ -29,7 +30,10 @@ function VehicleCard({ vehicle, imageURL, addToBook, item }: VehicleCardProps) {
         >
           <ShoppingCart size={20} strokeWidth={2.5} />
         </Button>
-        <Button className="rounded-none bg-red-500 bg-opacity-[0.8] hover:bg-red-500 hover:bg-opacity-[1]">
+        <Button
+          className="rounded-none bg-red-500 bg-opacity-[0.8] hover:bg-red-500 hover:bg-opacity-[1]"
+          onClick={() => addToWishlist(item)}
+        >
           <Heart size={20} strokeWidth={2.5} />
         </Button>
       </div>
