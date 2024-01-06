@@ -39,7 +39,7 @@ function VehicleCard({ vehicle, imageURL, addToBook, item, addToWishlist }: Vehi
       </div>
       <div className="flex justify-center p-5">
         <Link href={`/vehicle/${convertToKebabCase(vehicle)}`}>
-          <h3 className="font-medium tracking-tight text-blue-600 hover:text-blue-800">{vehicle}</h3>
+          <span className="font-medium tracking-tight text-blue-600 hover:text-blue-800">{vehicle}</span>
         </Link>
       </div>
     </div>

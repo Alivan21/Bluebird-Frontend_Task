@@ -21,7 +21,7 @@ function SearchBar() {
         placeholder="Search"
         type="search"
       />
-      <button className="absolute right-0 top-0 mr-4 mt-3" type="submit">
+      <button className="absolute right-0 top-0 mr-4 mt-3" name="vehicle" type="submit">
         <Search className="h-4 w-4 text-gray-600" />
       </button>
     </form>
