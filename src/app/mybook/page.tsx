@@ -3,11 +3,14 @@
 import { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { convertToKebabCase } from "@/lib/toKebabCase";
 import { useBookStore } from "@/store/book";
+import { ArrowLeft } from "lucide-react";
 
 function MyBook() {
+  const router = useRouter();
   const { book, remove, clear: handleClearBook } = useBookStore();
 
   const totalPrice = useMemo(() => {
@@ -28,7 +31,12 @@ function MyBook() {
   return (
     <section className="container rounded-lg p-6 shadow-lg">
       <div className="flex flex-col gap-3">
-        <h1 className="text-2xl font-bold text-blue-600">My Book</h1>
+        <div className="flex items-center gap-3">
+          <Button className="rounded-xl bg-blue-500 px-2 text-white hover:bg-blue-700" onClick={() => router.back()}>
+            <ArrowLeft className="h-8 w-8 text-white" />
+          </Button>
+          <h1 className="text-2xl font-bold text-blue-600">My Book</h1>
+        </div>
         {book?.length === 0 ? (
           <div className="flex h-48 items-center justify-center">
             <h1 className="text-xl font-semibold text-blue-600">No Book</h1>

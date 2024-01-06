@@ -17,7 +17,7 @@ function Vehicle({ params }: { params: { slug: string } }) {
   const { add: handleAddtoBook } = useBookStore();
   const { add: handleAddtoWishlist } = useWishlistStore();
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["vehicle", slug],
     queryFn: () => getVehicleBySlug(slug),
   });
@@ -57,12 +57,19 @@ function Vehicle({ params }: { params: { slug: string } }) {
     }
   }
 
-  if (!data || isLoading)
+  if (isLoading) {
     return (
       <div className="flex h-screen items-center justify-center">
         <Spinner />
       </div>
     );
+  } else if (isError || !data) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <h1 className="text-xl font-semibold text-blue-600">No Vehicle Found</h1>
+      </div>
+    );
+  }
 
   return (
     <section className="container mx-auto rounded-lg p-6 shadow-lg">
