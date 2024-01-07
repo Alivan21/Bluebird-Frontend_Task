@@ -2,6 +2,8 @@
   "extends": [
     "next/core-web-vitals",
     "eslint:recommended",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@tanstack/eslint-plugin-query/recommended",
     "plugin:tailwindcss/recommended",

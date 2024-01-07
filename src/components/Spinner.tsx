@@ -1,4 +1,4 @@
-function Spinner() {
+export default function Spinner() {
   return (
     <div role="status">
       <svg
@@ -21,4 +21,3 @@ function Spinner() {
     </div>
   );
 }
-export default Spinner;

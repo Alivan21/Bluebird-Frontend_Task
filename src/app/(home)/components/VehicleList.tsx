@@ -11,7 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 
 function VehicleList() {
   const searchParams = useSearchParams();
-  let category = searchParams.get("category");
+  const category = searchParams.get("category") ?? "1";
   const { add: handleAddtoBook } = useBookStore();
   const { add: handleAddtoWishlist } = useWishlistStore();
   const { toast } = useToast();
@@ -20,10 +20,6 @@ function VehicleList() {
     queryKey: ["vehicle"],
     queryFn: getVehicle,
   });
-
-  if (searchParams.get("category") === null) {
-    category = "1";
-  }
 
   if (!data)
     return (
