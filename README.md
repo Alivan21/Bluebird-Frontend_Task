@@ -33,48 +33,48 @@ Name : Alfan Olivan
 
   - Mobile Screen:
 
-    ![Homepage](doc/home_mobile.gif)
+    ![Homepage_Mobile](doc/home_mobile.gif)
 
 - Vehicle Detail:
 
   - Large Screen:
 
-    ![Homepage](doc/detail.gif)
+    ![Detail](doc/detail.gif)
 
   - Mobile Screen:
 
-    ![Homepage](doc/detail_mobile.gif)
+    ![Detail_Mobile](doc/detail_mobile.gif)
 
 - myBook:
 
   - Large Screen:
 
-    ![Homepage](doc/mybook.gif)
+    ![myBook](doc/mybook.gif)
 
   - Mobile Screen:
 
-    ![Homepage](doc/mybook_mobile.gif)
+    ![myBook_Mobile](doc/mybook_mobile.gif)
 
 - Wishlist:
 
   - Large Screen:
 
-    ![Homepage](doc/wishlist.gif)
+    ![Wishlist](doc/wishlist.gif)
 
   - Mobile Screen:
 
-    ![Homepage](doc/wishlist_mobile.gif)
+    ![Wishlist_Mobile](doc/wishlist_mobile.gif)
 
 - Search:
 
   - Large Screen:
 
-    ![Homepage](doc/search.gif)
+    ![Search](doc/search.gif)
 
   - Mobile Screen:
 
-    ![Homepage](doc/search_mobile.gif)
+    ![Search_Mobile](doc/search_mobile.gif)
 
 ### Unit Test Coverage
 
-![Homepage](doc/unit_test.png)
+![Unit_Test](doc/unit_test.png)
