@@ -2,6 +2,16 @@
 
 Name : Alfan Olivan
 
+### **Table of Contents**
+
+- [Bluebird Test - Frontend React Developer](#bluebird-test---frontend-react-developer)
+  - [**Table of Contents**](#table-of-contents)
+  - [Tech Stack](#tech-stack)
+  - [SSR Pages](#ssr-pages)
+  - [CSR Pages](#csr-pages)
+  - [Demo App](#demo-app)
+  - [Unit Test Coverage](#unit-test-coverage)
+
 ### Tech Stack
 
 - NextJS 14 + Typescript (React Framework)
