@@ -28,36 +28,51 @@ Name : Alfan Olivan
 - Homepage:
 
   - Large Screen:
+
     ![Homepage](doc/home.gif)
+
   - Mobile Screen:
+
     ![Homepage](doc/home_mobile.gif)
 
 - Vehicle Detail:
 
   - Large Screen:
+
     ![Homepage](doc/detail.gif)
+
   - Mobile Screen:
+
     ![Homepage](doc/detail_mobile.gif)
 
 - myBook:
 
   - Large Screen:
+
     ![Homepage](doc/mybook.gif)
+
   - Mobile Screen:
+
     ![Homepage](doc/mybook_mobile.gif)
 
 - Wishlist:
 
   - Large Screen:
+
     ![Homepage](doc/wishlist.gif)
+
   - Mobile Screen:
+
     ![Homepage](doc/wishlist_mobile.gif)
 
 - Search:
 
   - Large Screen:
+
     ![Homepage](doc/search.gif)
+
   - Mobile Screen:
+
     ![Homepage](doc/search_mobile.gif)
 
 ### Unit Test Coverage
